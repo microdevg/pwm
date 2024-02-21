@@ -13,7 +13,8 @@
 #define LED_GPIO                (2) // Define the output GPIO
 #define LEDC_CHANNEL            LEDC_CHANNEL_0
 #define LEDC_DUTY_RES           LEDC_TIMER_13_BIT // Set duty resolution to 13 bits
-#define LEDC_DUTY               (2000) // Set duty to 50%. (2 ** 13) * 50% = 4096
+#define DUTY_CYCLE              (0.5)
+#define LEDC_DUTY               ( (1 << 13)*DUTY_CYCLE) // Set duty to 50%.
 #define LEDC_FREQUENCY          (4000) // Frequency in Hertz. Set frequency at 4 kHz
 
 
@@ -44,18 +45,13 @@ static void example_ledc_init(void)
 
 void app_main(void)
 {
-    // Set the LEDC peripheral configuration
+    //Configuro
     example_ledc_init();
     ESP_ERROR_CHECK(ledc_set_duty(LEDC_MODE, LEDC_CHANNEL, LEDC_DUTY));
-    // Update duty to apply the new value
+    // Actualizo DC
     ESP_ERROR_CHECK(ledc_update_duty(LEDC_MODE, LEDC_CHANNEL));
-    uint32_t counter = 0;
     while(1){
     vTaskDelay(25 / portTICK_PERIOD_MS);
-    ESP_ERROR_CHECK(ledc_set_duty(LEDC_MODE, LEDC_CHANNEL, counter));
-    ESP_ERROR_CHECK(ledc_update_duty(LEDC_MODE, LEDC_CHANNEL));
-    if(counter >= 4000) counter = 0;
-    counter ++;
 
     }
 }

@@ -20,6 +20,14 @@ En este ejemplo simple vamos a control la intensidad de un led mediante los driv
 - Actualizar el tiempo de trabajo del PWM (duty cycle).
 
 
+## Imagenes
+
+![Placa](imgs/pwm.png)
+
+
+![Placa](imgs/circuito.png)
+
+
 
 ## Requisitos
 
