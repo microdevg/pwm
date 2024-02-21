@@ -22,11 +22,11 @@ En este ejemplo simple vamos a control la intensidad de un led mediante los driv
 
 ## Imagenes
 
-![Placa](imgs/pwm.png)
+### Mediciones con Analizador Lógico
+<img src="imgs/pwm.png" width="400" />
 
-
-![Placa](imgs/circuito.png)
-
+#### Circuito Implementado
+<img src="imgs/circuito.png" width="400" />
 
 
 ## Requisitos
